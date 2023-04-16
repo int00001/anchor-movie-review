@@ -3,7 +3,7 @@ use anchor_lang::prelude::*;
 declare_id!("7QokLGDkRajYY99oBVZqhXbuo9jMWDGLitoBux1MeDYp");
 
 #[program]
-pub mod anchor_movie_review_program {
+pub mod anchor_movie_review {
     use super::*;
 
     pub fn add_movie_review(ctx: Context<AddMovieReview>, title: String, description: String, rating: u8) -> Result<()> {

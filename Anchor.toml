@@ -2,7 +2,7 @@
 seeds = false
 skip-lint = false
 [programs.localnet]
-anchor_movie_review_program = "7QokLGDkRajYY99oBVZqhXbuo9jMWDGLitoBux1MeDYp"
+anchor_movie_review = "7QokLGDkRajYY99oBVZqhXbuo9jMWDGLitoBux1MeDYp"
 
 [registry]
 url = "https://api.apr.dev"
