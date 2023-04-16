@@ -19,10 +19,6 @@ interface MovieReview {
   rating: number;
 }
 
-/**
- * Manually serializing for an anchor program
- */
-
 export const addMovieReview = async (
   connection: Connection,
   wallet: Keypair,
@@ -50,7 +46,9 @@ export const addMovieReview = async (
   const desc_u8_vec_length = Buffer.from(
     new Uint8Array(new BN(desc_u8_vec.length).toArray('le', 4))
   );
-  const rating_u8 = Buffer.from(new Uint8Array(movieReview.rating));
+  const rating_u8 = Buffer.from(
+    new Uint8Array(new BN(movieReview.rating).toArray('le', 1))
+  );
 
   const ixData = Buffer.concat([
     ixBuffer, // namespace + method_name
@@ -74,4 +72,6 @@ export const addMovieReview = async (
   const tx = new Transaction().add(ix);
   const sig = await sendAndConfirmTransaction(connection, tx, [wallet]);
   console.log(sig);
+
+  return movieReviewPda;
 };
